@@ -1,0 +1,99 @@
+﻿@{
+    ViewBag.Title = "Inicio";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header border-0">
+        <h3 class="card-title">
+            <i class="fas fa-home mr-1"></i>
+            Inicio
+        </h3>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            @if (Session["role"].ToString() == "Instructor" ||
+                            Session["role"].ToString() == "Administrador")
+            {
+                <div class="col-lg-6 col-12">
+                    <!-- small card -->
+                    <div class="small-box bg-success">
+                        <div class="inner">
+                            <h3>Administrar Usuarios</h3>
+
+                            <p>Agregar/Eliminar Usuarios</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <a href="@Url.Action("Index", "User")" class="small-box-footer">
+                            Ingresar <i class="fas fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>
+            }
+            @if (Session["role"].ToString() == "Instructor" ||
+                            Session["role"].ToString() == "Administrador" ||
+                            Session["role"].ToString() == "Cajero")
+            {
+                <div class="col-lg-6 col-12">
+                    <!-- small card -->
+                    <div class="small-box bg-danger">
+                        <div class="inner">
+                            <h3>Agendar Cita</h3>
+
+                            <p>Crear Cita</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <a href="@Url.Action("Create", "Appointment")" class="small-box-footer">
+                            Ingresar <i class="fas fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>
+            }
+            @if (
+                            Session["role"].ToString() == "Administrador" ||
+                            Session["role"].ToString() == "Cajero")
+            {
+                <div class="col-lg-6 col-12">
+                    <!-- small card -->
+                    <div class="small-box bg-success">
+                        <div class="inner">
+                            <h3>Agregar Pago</h3>
+
+                            <p>Ver pagos</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <a href="@Url.Action("Index", "User")" class="small-box-footer">
+                            Ingresar <i class="fas fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>
+            }
+            @if (Session["role"].ToString() == "Instructor" ||
+                            Session["role"].ToString() == "Administrador")
+            {
+                <div class="col-lg-6 col-12">
+                    <!-- small card -->
+                    <div class="small-box bg-danger">
+                        <div class="inner">
+                            <h3>Agregar rutina</h3>
+
+                            <p>Ver Incapacidades</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-dumbbell"></i>
+                        </div>
+                        <a href="@Url.Action("Create", "Routine")" class="small-box-footer">
+                            Ingresar <i class="fas fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>
+            }
+            </div>
+    </div>
+</div>  

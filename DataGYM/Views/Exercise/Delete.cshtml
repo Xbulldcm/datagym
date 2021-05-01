@@ -1,0 +1,80 @@
+﻿@model DataGYM.Models.ExerciseViewModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>ExerciseViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.EXERCISE_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EXERCISE_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EXERCISE_TYPE_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EXERCISE_TYPE_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EXERCISE_DAY)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EXERCISE_DAY)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EXERCISE_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EXERCISE_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EXERCISE_REP_COUNT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EXERCISE_REP_COUNT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EXECISE_NOTE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EXECISE_NOTE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IS_ACTIVE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IS_ACTIVE)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

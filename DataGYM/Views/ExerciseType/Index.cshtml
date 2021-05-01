@@ -1,0 +1,45 @@
+﻿@model IEnumerable<DataGYM.Models.ExerciseTypeViewModel>
+
+@{
+    ViewBag.Title = "Tipos de ejercicio";
+}
+
+<h2>Tipos de Ejercicio</h2>
+
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-table"></i>
+        Detalles Tipos de Ejercicios |
+        <a href="@Url.Action("Create", "ExerciseType")" class="btn btn-info">Agregar</a>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="example1" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.EXERCISE_TYPE_NAME)
+                        </th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.EXERCISE_TYPE_NAME)
+                            </td>
+                            <td>
+                                <button class="btn btn-success" type="button" style="height:100%;width:100%;" onclick="location.href='@Url.Action("Edit", "ExerciseType", new { id = item.EXERCISE_TYPE_ID })'">Editar&nbsp;<i class="fas fa-edit"></i></button>
+
+
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

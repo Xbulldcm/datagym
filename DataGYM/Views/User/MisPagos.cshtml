@@ -1,0 +1,51 @@
+﻿@model IEnumerable<DataGYM.Models.PayViewModel>
+
+@{
+    ViewBag.Title = "MisPagos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Pagos pendientes</h2>
+
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-table"></i>
+        Detalles Pagos 
+        
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="example1" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.EXPIRES)
+                        </th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.EXPIRES)
+                            </td>
+                            <td>
+                                <button class="btn btn-success" type="button" style="height:100%;width:100%;" onclick="location.href='@Url.Action("Edit", "Pay", new { id = item.PAYMENT_ID })'">Pagar&nbsp;<i class="fas fa-edit"></i></button>
+
+
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="col-md-offset-2 col-md-12">
+
+    <a href="@Url.Action("Index", "User")" class="btn btn-dark" style="height:100%;width:100%;color:white">Volver</a>
+
+</div>

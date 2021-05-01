@@ -1,0 +1,76 @@
+﻿@model IEnumerable<DataGYM.Models.RoutineViewModel>
+
+@{
+    ViewBag.Title = "Lista Rutinas";
+}
+
+<h2>Rutinas</h2>
+
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-table"></i>
+        Detalles Rutinas |
+        <a href="@Url.Action("Create", "Routine")" class="btn btn-info">Agregar</a>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="example1" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Name_Routine)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.NOTE_Routine)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.USER_ID)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.CREATE_DATE_ROUTINE)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.IS_ACTIVE)
+                        </th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name_Routine)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NOTE_Routine)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.nombreUsuario)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CREATE_DATE_ROUTINE)
+                            </td>
+                            <td style="text-align:center">
+                                @if (item.IS_ACTIVE == true)
+                                {
+                                    <span class="badge badge-warning" style="background-color:#28a745;color: #fff;">Activo</span>
+                                }
+                                else
+                                {
+                                    <span class="badge badge-warning" style="background-color:#dc3545;color: #fff;">Inactivo</span>
+                                }
+                            </td>
+                            <td>
+                                <button class="btn btn-success" type="button" style="height:100%;width:100%;" onclick="location.href='@Url.Action("Edit", "Routine", new { id = item.ROUTINE_ID })'">Editar&nbsp;<i class="fas fa-edit"></i></button>
+
+
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

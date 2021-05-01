@@ -1,0 +1,50 @@
+﻿@model DataGYM.Models.PayViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PayViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PAYMENT_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PAYMENT_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PAYMENT_TYPE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PAYMENT_TYPE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CARD_NUMBER)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CARD_NUMBER)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EXPIRES)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EXPIRES)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

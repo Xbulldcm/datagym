@@ -1,0 +1,46 @@
+﻿@model DataGYM.Models.ExerciseTypeViewModel
+
+@{
+    ViewBag.Title = "Editar Tipo de Ejercicio";
+}
+
+<h2>Editar Tipo de Ejercicio</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.EXERCISE_TYPE_ID)
+    <div class="card">
+        <div class="card-body">
+            <div class="form-group">
+                @Html.LabelFor(model => model.EXERCISE_TYPE_NAME, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.EXERCISE_TYPE_NAME, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.EXERCISE_TYPE_NAME, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-12">
+            <input type="submit" id="guardar" value="Guardar" class="btn btn-primary" style="height:100%;width:100%;color:white" />
+        </div>
+    </div>
+</div>
+}
+<div class="col-md-offset-2 col-md-12">
+
+    <a href="@Url.Action("Index", "ExerciseType")" class="btn btn-dark" style="height:100%;width:100%;color:white">Volver</a>
+
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

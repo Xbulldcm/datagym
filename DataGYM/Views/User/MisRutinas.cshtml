@@ -1,0 +1,76 @@
+﻿@model DataGYM.Models.UserViewModel
+
+@{
+    ViewBag.Title = "MisRutinas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Mis Rutinas</h2>
+
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-table"></i>
+        Detalles Rutinas
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="example1" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayName("Nombre")
+                        </th>
+                        <th>
+                            @Html.DisplayName("Notas")
+                        </th>
+                        <th>
+                            @Html.DisplayName("Fecha de creación")
+                        </th>
+                        <th>
+                            @Html.DisplayName("Estado")
+                        </th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.lista_rutinasVM)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name_Routine)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NOTE_Routine)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CREATE_DATE_ROUTINE)
+                            </td>
+                            <td style="text-align:center">
+                                @if (item.IS_ACTIVE == true)
+                                {
+                                    <span class="badge badge-warning" style="background-color:#28a745;color: #fff;">Activo</span>
+                                }
+                                else
+                                {
+                                    <span class="badge badge-warning" style="background-color:#dc3545;color: #fff;">Inactivo</span>
+                                }
+                            </td>
+                            <td>
+                                <button class="btn btn-success" type="button" style="height:100%;width:100%;" onclick="location.href='@Url.Action("VerRutina", "User", new { id = item.ROUTINE_ID })'">Ver&nbsp;<i class="fas fa-edit"></i></button>
+
+
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="col-md-offset-2 col-md-12">
+
+    <a href="@Url.Action("Index", "User")" class="btn btn-dark" style="height:100%;width:100%;color:white;">Volver</a>
+    
+</div>
+

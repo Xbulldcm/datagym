@@ -1,0 +1,66 @@
+﻿@model IEnumerable<DataGYM.Models.RoleViewModel>
+
+@{
+    ViewBag.Title = "Lista Roles";
+}
+
+<h2>Roles</h2>
+
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-table"></i>
+        Detalles Roles |
+        <a href="@Url.Action("Create", "Role")" class="btn btn-info">Agregar</a>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="example1" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.NAME)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.DESCRIPTION)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.IS_ACTIVE)
+                        </th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NAME)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DESCRIPTION)
+                            </td>
+                            <td style="text-align:center">
+                                @if (item.IS_ACTIVE == true)
+                                {
+                                <span class="badge badge-warning" style="background-color:#28a745;color: #fff;">Activo</span>
+                                }
+                                else
+                                {
+                                <span class="badge badge-warning" style="background-color:#dc3545;color: #fff;">Inactivo</span>
+                                }
+                            </td>
+                            <td>
+                                <button class="btn btn-success" type="button" style="height:100%;width:100%;" onclick="location.href='@Url.Action("Edit", "Role", new { id = item.ROLE_ID })'">Editar&nbsp;<i class="fas fa-edit"></i></button>
+
+                                
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+

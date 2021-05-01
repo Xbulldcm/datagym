@@ -1,0 +1,120 @@
+﻿@model DataGYM.Models.AppointmentViewModel
+
+@{
+    ViewBag.Title = "Editar Cita";
+}
+
+<h2>Editar Cita</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.APPOINTMENT_ID)
+    <div class="card">
+        <div class="card-body">
+            <div class="form-group">
+                @Html.LabelFor(model => model.NAME, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.NAME, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.NAME, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.LASTNAME, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.LASTNAME, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.LASTNAME, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CONTACT_NUMBER, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.CONTACT_NUMBER, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.CONTACT_NUMBER, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.DATE_APPOINTMENT, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-12">
+                    <input class="form-control" data-val="true" data-val-date="The field Fecha de la cita must be a date." data-val-required="Debe seleccionar una fecha para cita" id="DATE_APPOINTMENT" name="DATE_APPOINTMENT" type="date" value="" aria-describedby="DATE_APPOINTMENT-error" aria-invalid="false" data-date="" data-date-format="MM/DD/YYYY">
+
+                    @Html.ValidationMessageFor(model => model.DATE_APPOINTMENT, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.TIME_APPOINTMENT, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-12">
+                    <select name="TIME_APPOINTMENT" id="TIME_APPOINTMENT" class="form-control">
+                        <option value="" selected disabled hidden>-- Hora --</option>
+                        <option value="8:00 a.m">8:00 a.m</option>
+                        <option value="9:00 a.m">9:00 a.m</option>
+                        <option value="10:00 a.m">10:00 a.m</option>
+                        <option value="11:00 a.m">11:00 a.m</option>
+                        <option value="12:00 m.d">12:00 m.d</option>
+                        <option value="1:00 p.m">1:00 p.m</option>
+                        <option value="2:00 p.m">2:00 p.m</option>
+                        <option value="3:00 p.m">3:00 p.m</option>
+                        <option value="4:00 p.m">4:00 p.m</option>
+                        <option value="5:00 p.m">5:00 p.m</option>
+                    </select>
+                    @Html.ValidationMessageFor(model => model.TIME_APPOINTMENT, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.MESSAGE_APPOINTMENT, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.MESSAGE_APPOINTMENT, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.MESSAGE_APPOINTMENT, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.SITE_ID, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-12">
+                    @Html.DropDownListFor(model => model.SITE_ID, new SelectList(Model.lista_sites, "SITE_ID", "LOCATION"), "-- Lista sites --", new { @class = "form-control select2bs4", @style = "width: 100%;" })
+                    @Html.ValidationMessageFor(model => model.SITE_ID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.IS_ACTIVE, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-12">
+                    <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
+                        @Html.CheckBoxFor(model => model.IS_ACTIVE, new { @class = "custom-control-input" })
+                        <label class="custom-control-label" for="IS_ACTIVE" />
+                    </div>
+                    @Html.ValidationMessageFor(model => model.IS_ACTIVE, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-12">
+            <input type="submit" id="guardar" value="Guardar" class="btn btn-primary" style="height:100%;width:100%;color:white" />
+        </div>
+    </div>
+</div>
+        }
+
+<div class="col-md-offset-2 col-md-12">
+
+    <a href="@Url.Action("Index", "Appointment")" class="btn btn-dark" style="height:100%;width:100%;color:white">Volver</a>
+
+</div>
+
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+        }

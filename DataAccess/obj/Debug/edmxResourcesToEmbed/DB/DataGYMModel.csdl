@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DataGYMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="EXERCISE_TABLE">
+    <Key>
+      <PropertyRef Name="EXERCISE_ID" />
+    </Key>
+    <Property Name="EXERCISE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EXERCISE_TYPE_ID" Type="Int32" />
+    <Property Name="EXERCISE_DAY" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="EXERCISE_NAME" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="EXERCISE_REP_COUNT" Type="Int32" />
+    <Property Name="EXECISE_NOTE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ROUTINE_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="IS_ACTIVE" Type="Boolean" Nullable="false" />
+    <Property Name="EXERCISE_REP_ROUND" Type="Int32" />
+  </EntityType>
+  <EntityType Name="EXERCISE_TYPE_TABLE">
+    <Key>
+      <PropertyRef Name="EXERCISE_TYPE_ID" />
+    </Key>
+    <Property Name="EXERCISE_TYPE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EXERCISE_TYPE_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="MEMBERSHIP_TABLE">
+    <Key>
+      <PropertyRef Name="MEMBERSHIP_ID" />
+    </Key>
+    <Property Name="MEMBERSHIP_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MEM_TYPE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PAY_TABLE">
+    <Key>
+      <PropertyRef Name="PAYMENT_ID" />
+    </Key>
+    <Property Name="PAYMENT_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PAYMENT_TYPE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CARD_NUMBER" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="EXPIRES" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CREATE_DATE" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="PAID_DATE" Type="DateTime" Precision="3" />
+    <Property Name="USER_ID" Type="Int32" Nullable="false" />
+    <Property Name="IS_ACTIVE" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ROLE_TABLE">
+    <Key>
+      <PropertyRef Name="ROLE_ID" />
+    </Key>
+    <Property Name="ROLE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IS_ACTIVE" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ROUTINE_TABLE">
+    <Key>
+      <PropertyRef Name="ROUTINE_ID" />
+    </Key>
+    <Property Name="ROUTINE_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NAME_ROUTINE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="NOTE_ROUTINE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="USER_ID" Type="Int32" Nullable="false" />
+    <Property Name="CREATE_DATE_ROUTINE" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IS_ACTIVE" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SITE_TABLE">
+    <Key>
+      <PropertyRef Name="SITE_ID" />
+    </Key>
+    <Property Name="SITE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LOCATION" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="USER_TABLE">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Identification" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumber" Type="Int32" />
+    <Property Name="ManagerName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="FKMB" Type="Int32" />
+    <Property Name="FKPAY" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="FKROLE" Type="Int32" />
+    <Property Name="FKSITE" Type="Int32" />
+    <Property Name="IS_ACTIVE" Type="Boolean" Nullable="false" />
+    <Property Name="CREATE_DATE" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="APPOINTMENT_TABLE">
+    <Key>
+      <PropertyRef Name="APPOINTMENT_ID" />
+    </Key>
+    <Property Name="APPOINTMENT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="LASTNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CONTACT_NUMBER" Type="Int32" />
+    <Property Name="DATE_APPOINTMENT" Type="DateTime" Precision="3" />
+    <Property Name="TIME_APPOINTMENT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MESSAGE_APPOINTMENT" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="SITE_ID" Type="Int32" />
+    <Property Name="CREATE_DATE" Type="DateTime" Precision="3" />
+    <Property Name="IS_ACTIVE" Type="Boolean" />
+  </EntityType>
+  <EntityContainer Name="DataGYMEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="EXERCISE_TABLE" EntityType="Self.EXERCISE_TABLE" />
+    <EntitySet Name="EXERCISE_TYPE_TABLE" EntityType="Self.EXERCISE_TYPE_TABLE" />
+    <EntitySet Name="MEMBERSHIP_TABLE" EntityType="Self.MEMBERSHIP_TABLE" />
+    <EntitySet Name="PAY_TABLE" EntityType="Self.PAY_TABLE" />
+    <EntitySet Name="ROLE_TABLE" EntityType="Self.ROLE_TABLE" />
+    <EntitySet Name="ROUTINE_TABLE" EntityType="Self.ROUTINE_TABLE" />
+    <EntitySet Name="SITE_TABLE" EntityType="Self.SITE_TABLE" />
+    <EntitySet Name="USER_TABLE" EntityType="Self.USER_TABLE" />
+    <EntitySet Name="APPOINTMENT_TABLE" EntityType="Self.APPOINTMENT_TABLE" />
+  </EntityContainer>
+</Schema>

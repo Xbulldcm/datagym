@@ -1,0 +1,139 @@
+﻿@model IEnumerable<DataGYM.Models.UserViewModel>
+
+@{
+    ViewBag.Title = "Lista Usuarios";
+}
+
+<h2>Usuarios</h2>
+
+<div class="card mb-3">
+    <div class="card-header">
+
+        @if (Session["role"].ToString() == "Instructor" ||
+                                             Session["role"].ToString() == "Administrador")
+        {
+            <div><i class="fas fa-table"></i>Detalles Usuarios | <a href="@Url.Action("Create", "User")" class="btn btn-info">Agregar</a></div>
+        }
+        else if (Session["role"].ToString() == "Cajero")
+        {
+    <div>
+        <i class="fas fa-table"></i>
+        Detalles Usuarios
+    </div>
+            
+      }
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="example1" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.LastName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Identification)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Email)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Address)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.PhoneNumber)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ManagerName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.FKMB)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.FKROLE)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.FKSITE)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.IS_ACTIVE)
+                        </th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LastName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Identification)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Email)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Address)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PhoneNumber)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ManagerName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.nombreMembresia)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.nombreRol)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.nombreSite)
+                            </td>
+                            <td style="text-align:center">
+                                @if (item.IS_ACTIVE == true)
+                                {
+                                    <span class="badge badge-warning" style="background-color:#28a745;color: #fff;">Activo</span>
+                                }
+                                else
+                                {
+                                    <span class="badge badge-warning" style="background-color:#dc3545;color: #fff;">Inactivo</span>
+                                }
+                            </td>
+                            <td  align="center">
+                               
+                                <div class="btn-group btn-group-sm">
+                                    
+                                        @if (Session["role"].ToString() == "Administrador")
+                                        {<button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Edit", "User", new { id = item.UserID })'"><i class="fas fa-edit"></i></button>}
+                                        @if (Session["role"].ToString() == "Instructor" ||
+                                             Session["role"].ToString() == "Administrador")
+                                        {<button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("MisRutinas", "User", new { id = item.UserID })'"><i class="fas fa-dumbbell"></i></button>}
+                                        @if (Session["role"].ToString() == "Administrador" || Session["role"].ToString() == "Cajero")
+                                        {<button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("MisPagos", "User", new { id = item.UserID })'"><i class="fas fa-dollar-sign"></i></button>}
+
+                                    
+                                    
+                                </div>
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="col-md-offset-2 col-md-12">
+
+    <a href="@Url.Action("Index", "Home")" class="btn btn-dark" style="height:100%;width:100%;color:white">Volver</a>
+
+</div>

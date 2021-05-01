@@ -1,0 +1,71 @@
+﻿@model DataGYM.Models.PayViewModel
+
+@{
+    ViewBag.Title = "Editar Pago";
+}
+
+<h2>Editar pago</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="card">
+            <div class="card-body">
+                @Html.HiddenFor(model => model.PAYMENT_ID)
+                <div class="form-group">
+                    @Html.LabelFor(model => model.PAYMENT_TYPE, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.PAYMENT_TYPE, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.PAYMENT_TYPE, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.CARD_NUMBER, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.CARD_NUMBER, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.CARD_NUMBER, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.IS_ACTIVE, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-12">
+
+                        <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
+                            @Html.CheckBoxFor(model => model.IS_ACTIVE, new { @class = "custom-control-input" })
+                            <label class="custom-control-label" for="IS_ACTIVE" />
+                        </div>
+
+                        @Html.ValidationMessageFor(model => model.IS_ACTIVE, "", new { @class = "text-danger" })
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-12">
+                <input type="submit" id="guardar" value="Guardar" class="btn btn-primary" style="height:100%;width:100%;color:white" />
+            </div>
+        </div>
+    </div>
+}
+
+<div class="col-md-offset-2 col-md-12">
+
+    <a href="@Url.Action("Index", "User")" class="btn btn-dark" style="height:100%;width:100%;color:white">Volver</a>
+
+</div>
+
+@section Scripts {
+
+    @Scripts.Render("~/bundles/jqueryval")
+}

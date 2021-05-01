@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DataGYMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="APPOINTMENT_TABLE">
+    <Key>
+      <PropertyRef Name="APPOINTMENT_ID" />
+    </Key>
+    <Property Name="APPOINTMENT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="100" />
+    <Property Name="LASTNAME" Type="varchar" MaxLength="100" />
+    <Property Name="CONTACT_NUMBER" Type="int" />
+    <Property Name="DATE_APPOINTMENT" Type="datetime" />
+    <Property Name="TIME_APPOINTMENT" Type="varchar" MaxLength="50" />
+    <Property Name="MESSAGE_APPOINTMENT" Type="varchar" MaxLength="300" />
+    <Property Name="SITE_ID" Type="int" />
+    <Property Name="CREATE_DATE" Type="datetime" />
+    <Property Name="IS_ACTIVE" Type="bit" />
+  </EntityType>
+  <EntityType Name="EXERCISE_TABLE">
+    <Key>
+      <PropertyRef Name="EXERCISE_ID" />
+    </Key>
+    <Property Name="EXERCISE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EXERCISE_TYPE_ID" Type="int" />
+    <Property Name="EXERCISE_DAY" Type="varchar" MaxLength="20" />
+    <Property Name="EXERCISE_NAME" Type="varchar" MaxLength="250" />
+    <Property Name="EXERCISE_REP_COUNT" Type="int" />
+    <Property Name="EXECISE_NOTE" Type="varchar" MaxLength="255" />
+    <Property Name="ROUTINE_ID" Type="varchar" MaxLength="255" />
+    <Property Name="IS_ACTIVE" Type="bit" Nullable="false" />
+    <Property Name="EXERCISE_REP_ROUND" Type="int" />
+  </EntityType>
+  <EntityType Name="EXERCISE_TYPE_TABLE">
+    <Key>
+      <PropertyRef Name="EXERCISE_TYPE_ID" />
+    </Key>
+    <Property Name="EXERCISE_TYPE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EXERCISE_TYPE_NAME" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="MEMBERSHIP_TABLE">
+    <Key>
+      <PropertyRef Name="MEMBERSHIP_ID" />
+    </Key>
+    <Property Name="MEMBERSHIP_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DESCRIPTION" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="MEM_TYPE" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PAY_TABLE">
+    <Key>
+      <PropertyRef Name="PAYMENT_ID" />
+    </Key>
+    <Property Name="PAYMENT_ID" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="PAYMENT_TYPE" Type="varchar" MaxLength="100" />
+    <Property Name="CARD_NUMBER" Type="varchar" MaxLength="100" />
+    <Property Name="EXPIRES" Type="datetime" Nullable="false" />
+    <Property Name="CREATE_DATE" Type="datetime" Nullable="false" />
+    <Property Name="PAID_DATE" Type="datetime" />
+    <Property Name="USER_ID" Type="int" Nullable="false" />
+    <Property Name="IS_ACTIVE" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ROLE_TABLE">
+    <Key>
+      <PropertyRef Name="ROLE_ID" />
+    </Key>
+    <Property Name="ROLE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="DESCRIPTION" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="IS_ACTIVE" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ROUTINE_TABLE">
+    <Key>
+      <PropertyRef Name="ROUTINE_ID" />
+    </Key>
+    <Property Name="ROUTINE_ID" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="NAME_ROUTINE" Type="varchar" MaxLength="255" />
+    <Property Name="NOTE_ROUTINE" Type="varchar" MaxLength="255" />
+    <Property Name="USER_ID" Type="int" Nullable="false" />
+    <Property Name="CREATE_DATE_ROUTINE" Type="datetime" Nullable="false" />
+    <Property Name="IS_ACTIVE" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SITE_TABLE">
+    <Key>
+      <PropertyRef Name="SITE_ID" />
+    </Key>
+    <Property Name="SITE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LOCATION" Type="varchar" MaxLength="300" Nullable="false" />
+  </EntityType>
+  <EntityType Name="USER_TABLE">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" />
+    <Property Name="LastName" Type="varchar" MaxLength="100" />
+    <Property Name="Identification" Type="varchar" MaxLength="100" />
+    <Property Name="Email" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="300" />
+    <Property Name="PhoneNumber" Type="int" />
+    <Property Name="ManagerName" Type="varchar" MaxLength="100" />
+    <Property Name="FKMB" Type="int" />
+    <Property Name="FKPAY" Type="varchar" MaxLength="255" />
+    <Property Name="FKROLE" Type="int" />
+    <Property Name="FKSITE" Type="int" />
+    <Property Name="IS_ACTIVE" Type="bit" Nullable="false" />
+    <Property Name="CREATE_DATE" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="DataGYMModelStoreContainer">
+    <EntitySet Name="APPOINTMENT_TABLE" EntityType="Self.APPOINTMENT_TABLE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EXERCISE_TABLE" EntityType="Self.EXERCISE_TABLE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EXERCISE_TYPE_TABLE" EntityType="Self.EXERCISE_TYPE_TABLE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MEMBERSHIP_TABLE" EntityType="Self.MEMBERSHIP_TABLE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PAY_TABLE" EntityType="Self.PAY_TABLE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ROLE_TABLE" EntityType="Self.ROLE_TABLE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ROUTINE_TABLE" EntityType="Self.ROUTINE_TABLE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SITE_TABLE" EntityType="Self.SITE_TABLE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USER_TABLE" EntityType="Self.USER_TABLE" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

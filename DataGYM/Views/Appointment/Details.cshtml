@@ -1,0 +1,90 @@
+﻿@model DataGYM.Models.AppointmentViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>AppointmentViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.APPOINTMENT_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.APPOINTMENT_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LASTNAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LASTNAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CONTACT_NUMBER)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CONTACT_NUMBER)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DATE_APPOINTMENT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DATE_APPOINTMENT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TIME_APPOINTMENT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TIME_APPOINTMENT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MESSAGE_APPOINTMENT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MESSAGE_APPOINTMENT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SITE_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SITE_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IS_ACTIVE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IS_ACTIVE)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DataGYMModelStoreContainer" CdmEntityContainer="DataGYMEntities">
+    <EntitySetMapping Name="EXERCISE_TABLE">
+      <EntityTypeMapping TypeName="DataGYMModel.EXERCISE_TABLE">
+        <MappingFragment StoreEntitySet="EXERCISE_TABLE">
+          <ScalarProperty Name="EXERCISE_ID" ColumnName="EXERCISE_ID" />
+          <ScalarProperty Name="EXERCISE_TYPE_ID" ColumnName="EXERCISE_TYPE_ID" />
+          <ScalarProperty Name="EXERCISE_DAY" ColumnName="EXERCISE_DAY" />
+          <ScalarProperty Name="EXERCISE_NAME" ColumnName="EXERCISE_NAME" />
+          <ScalarProperty Name="EXERCISE_REP_COUNT" ColumnName="EXERCISE_REP_COUNT" />
+          <ScalarProperty Name="EXECISE_NOTE" ColumnName="EXECISE_NOTE" />
+          <ScalarProperty Name="ROUTINE_ID" ColumnName="ROUTINE_ID" />
+          <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
+          <ScalarProperty Name="EXERCISE_REP_ROUND" ColumnName="EXERCISE_REP_ROUND" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EXERCISE_TYPE_TABLE">
+      <EntityTypeMapping TypeName="DataGYMModel.EXERCISE_TYPE_TABLE">
+        <MappingFragment StoreEntitySet="EXERCISE_TYPE_TABLE">
+          <ScalarProperty Name="EXERCISE_TYPE_ID" ColumnName="EXERCISE_TYPE_ID" />
+          <ScalarProperty Name="EXERCISE_TYPE_NAME" ColumnName="EXERCISE_TYPE_NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MEMBERSHIP_TABLE">
+      <EntityTypeMapping TypeName="DataGYMModel.MEMBERSHIP_TABLE">
+        <MappingFragment StoreEntitySet="MEMBERSHIP_TABLE">
+          <ScalarProperty Name="MEMBERSHIP_ID" ColumnName="MEMBERSHIP_ID" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+          <ScalarProperty Name="MEM_TYPE" ColumnName="MEM_TYPE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PAY_TABLE">
+      <EntityTypeMapping TypeName="DataGYMModel.PAY_TABLE">
+        <MappingFragment StoreEntitySet="PAY_TABLE">
+          <ScalarProperty Name="PAYMENT_ID" ColumnName="PAYMENT_ID" />
+          <ScalarProperty Name="PAYMENT_TYPE" ColumnName="PAYMENT_TYPE" />
+          <ScalarProperty Name="CARD_NUMBER" ColumnName="CARD_NUMBER" />
+          <ScalarProperty Name="EXPIRES" ColumnName="EXPIRES" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="PAID_DATE" ColumnName="PAID_DATE" />
+          <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+          <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ROLE_TABLE">
+      <EntityTypeMapping TypeName="DataGYMModel.ROLE_TABLE">
+        <MappingFragment StoreEntitySet="ROLE_TABLE">
+          <ScalarProperty Name="ROLE_ID" ColumnName="ROLE_ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+          <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ROUTINE_TABLE">
+      <EntityTypeMapping TypeName="DataGYMModel.ROUTINE_TABLE">
+        <MappingFragment StoreEntitySet="ROUTINE_TABLE">
+          <ScalarProperty Name="ROUTINE_ID" ColumnName="ROUTINE_ID" />
+          <ScalarProperty Name="NAME_ROUTINE" ColumnName="NAME_ROUTINE" />
+          <ScalarProperty Name="NOTE_ROUTINE" ColumnName="NOTE_ROUTINE" />
+          <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+          <ScalarProperty Name="CREATE_DATE_ROUTINE" ColumnName="CREATE_DATE_ROUTINE" />
+          <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SITE_TABLE">
+      <EntityTypeMapping TypeName="DataGYMModel.SITE_TABLE">
+        <MappingFragment StoreEntitySet="SITE_TABLE">
+          <ScalarProperty Name="SITE_ID" ColumnName="SITE_ID" />
+          <ScalarProperty Name="LOCATION" ColumnName="LOCATION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USER_TABLE">
+      <EntityTypeMapping TypeName="DataGYMModel.USER_TABLE">
+        <MappingFragment StoreEntitySet="USER_TABLE">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Identification" ColumnName="Identification" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="ManagerName" ColumnName="ManagerName" />
+          <ScalarProperty Name="FKMB" ColumnName="FKMB" />
+          <ScalarProperty Name="FKPAY" ColumnName="FKPAY" />
+          <ScalarProperty Name="FKROLE" ColumnName="FKROLE" />
+          <ScalarProperty Name="FKSITE" ColumnName="FKSITE" />
+          <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="APPOINTMENT_TABLE">
+      <EntityTypeMapping TypeName="DataGYMModel.APPOINTMENT_TABLE">
+        <MappingFragment StoreEntitySet="APPOINTMENT_TABLE">
+          <ScalarProperty Name="APPOINTMENT_ID" ColumnName="APPOINTMENT_ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="LASTNAME" ColumnName="LASTNAME" />
+          <ScalarProperty Name="CONTACT_NUMBER" ColumnName="CONTACT_NUMBER" />
+          <ScalarProperty Name="DATE_APPOINTMENT" ColumnName="DATE_APPOINTMENT" />
+          <ScalarProperty Name="TIME_APPOINTMENT" ColumnName="TIME_APPOINTMENT" />
+          <ScalarProperty Name="MESSAGE_APPOINTMENT" ColumnName="MESSAGE_APPOINTMENT" />
+          <ScalarProperty Name="SITE_ID" ColumnName="SITE_ID" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

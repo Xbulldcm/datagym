@@ -1,0 +1,74 @@
+﻿@model DataGYM.Models.ExerciseViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ExerciseViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.EXERCISE_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EXERCISE_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EXERCISE_TYPE_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EXERCISE_TYPE_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EXERCISE_DAY)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EXERCISE_DAY)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EXERCISE_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EXERCISE_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EXERCISE_REP_COUNT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EXERCISE_REP_COUNT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EXECISE_NOTE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EXECISE_NOTE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IS_ACTIVE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IS_ACTIVE)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

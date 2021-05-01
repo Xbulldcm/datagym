@@ -1,0 +1,88 @@
+﻿@model IEnumerable<DataGYM.Models.ExerciseViewModel>
+
+@{
+    ViewBag.Title = "Lista Ejercicios";
+}
+
+<h2>Ejercicios</h2>
+
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-table"></i>
+        Detalles Ejercicios |
+        <a href="@Url.Action("Create", "Exercise")" class="btn btn-info">Agregar</a>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="example1" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.EXERCISE_TYPE_ID)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.EXERCISE_DAY)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.EXERCISE_NAME)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.EXERCISE_REP_COUNT)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.EXERCISE_REP_ROUND)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.EXECISE_NOTE)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.IS_ACTIVE)
+                        </th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EXERCISE_TYPE_ID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EXERCISE_DAY)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EXERCISE_NAME)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EXERCISE_REP_COUNT)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EXERCISE_REP_ROUND)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EXECISE_NOTE)
+                        </td>
+                        <td style="text-align:center">
+                            @if (item.IS_ACTIVE == true)
+                            {
+                                <span class="badge badge-warning" style="background-color:#28a745;color: #fff;">Activo</span>
+                            }
+                            else
+                            {
+                                <span class="badge badge-warning" style="background-color:#dc3545;color: #fff;">Inactivo</span>
+                            }
+                        </td>
+                        <td>
+                            <button class="btn btn-success" type="button" style="height:100%;width:100%;" onclick="location.href='@Url.Action("Edit", "Exercise", new { id = item.EXERCISE_ID })'">Editar&nbsp;<i class="fas fa-edit"></i></button>
+
+
+                        </td>
+                    </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
